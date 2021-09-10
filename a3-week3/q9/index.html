@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    Important Meta tags declaring the character encoding and the viewport
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    Google Online Fonts to get beautiful fonts from web like 
+    Poppins for sans serif and IBM Plex Mono for monospace font
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!--
+    External CSS files
+  -->
+  <link rel="stylesheet" href="../public/global.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Send Mail</title>
+</head>
+<body>
+
+  <!-- NavBar component start -->
+  <nav class="navbar">
+    <a href=".." class="back-button">
+      &#8592
+    </a>
+    <div "current-page">Question 9</div>
+  </nav>
+  <!-- NavBar component end -->
+
+  <!-- Form component start -->
+  <div class="card form-div">
+    <form>
+      <div class="input-style">
+        <input class="input" id="to" type="text" value="abc@xyz.com; meherchaitanya18802@gmail.com" autocomplete="off" required />
+        <label class="label" for="input">To</label>
+        <div class="error to" id="error"></div>
+      </div>
+
+      <div class="input-style">
+        <input class="input" type="text" value="Assign #3 Meher Chaitanya" autocomplete="off" required />
+        <label class="label" for="input" >Subject</label>
+      </div>
+      <div class="input-style">
+          <textarea class="textarea" name="body" cols="60" rows="11" autocomplete="off" required >My name is N Sri Meher Chaitanya Varma (19mcme12) and prefer to be called Meher.
+
+I am interested in researching the concepts of DevOps, Cloud Computing and Web Development/Designing. Coming to computers and networking, I have beginner to intermediate knowledge and I am interested to learn about Computer Networks.
+
+I felt the I.T course to be important because the contents in this course help us to create applications where we can present our innovations through the window of web development by creating websites
+</textarea>
+          <label for="input" class="label">Body</label>
+      </div>
+
+      <div>
+        <button class="active" id="submitButton" type="submit">Send &#8594 </button>
+      </div>
+    </form>
+  </div>
+  <!-- Form component end -->
+
+</body>
+<!--Script for email field validation with regex-->
+<script src="script.js"></script>
+</html>
