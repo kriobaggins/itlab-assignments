@@ -2,6 +2,13 @@
  * Code Declaration order guide used by Bootstrap: https://codeguide.co/#css-organization
  */
 
+/* utility styles */
+
+/* give spacing between other HTML elements when used */
+div.height-30 { padding: 30px 0; }
+div.height-60 { padding: 60px 0; }
+
+
 /* common css to all elements */
 * {
   margin: 0;
@@ -75,7 +82,7 @@ body {
 .navbar > div {
   display: inline;
 
-  font-weight: 500;
+  font-weight: 600;
   font-size: 20px;
 }
 

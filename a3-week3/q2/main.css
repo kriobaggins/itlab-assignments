@@ -1,0 +1,36 @@
+table {
+  width: 90%;
+  height: calc(90vh - 120px);
+  margin: auto;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #eee;
+  padding: 8px;
+}
+
+td { 
+  text-align: center; 
+  background: #fff;
+  margin: 4px;
+  cursor: pointer;
+} 
+
+th {
+  padding-top: 12px;
+  background: #13b0ea04;
+  padding-bottom: 12px;
+  text-align: left;
+  font-weight: 600;
+  padding-left: 40px;
+}
+
+tr.time > th {
+  position: relative;
+  padding-left: 0;
+  background-color: transparent;
+  transform: translate(-50%, 0);
+  font-family: 'IBM Plex Mono', sans-serif;
+  text-align: center;
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    Important Meta tags declaring the character encoding and the viewport
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    Google Online Fonts to get beautiful fonts from web like 
+    Poppins for sans serif and IBM Plex Mono for monospace font
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!--
+    External CSS files
+  -->
+  <link rel="stylesheet" href="../public/global.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Q2 | Time Table</title>
+  <style>
+  </style>
+</head>
+<body>
+  <!-- NavBar component start -->
+  <nav class="navbar">
+    <a href=".." class="back-button">
+      &#8592
+    </a>
+    <div "current-page">Question 6 | Frame Formats</div>
+  </nav>
+  <!-- NavBar component end -->
+
+  <div class="height-60"></div>
+  <table>
+    <colgroup>
+      <col width=100>
+      <col width=100>
+      <col width=100>
+      <col width=100>
+      <col width=100>
+      <col width=100>
+      <col width=100>
+      <col width=100>
+      <col width=100>
+    </colgroup>
+    <tr class="time" >
+      <th></th>
+      <th>9AM</th>
+      <th>10AM</th>
+      <th>11AM</th>
+      <th>12PM</th>
+      <th>1PM</th>
+      <th>2PM</th>
+      <th>3PM</th>
+      <th>4PM</th>
+    </tr>
+
+    <tr>
+      <th>Monday</th>
+      <td colspan="2" title="Digambar Pawar">Database Management System</td>
+      <td colspan="2" title="Anupama Potluri">Operating System</td>
+      <td rowspan="5">LUNCH</td>
+      <td colspan="3" title="Digambar Pawar">Database Management System Lab</td>
+      <!-- <th>Wednesday</th> -->
+      <!-- <th>Thursday</th> -->
+      <!-- <th>Friday</th> -->
+    </tr>
+    <tr>
+      <th>Tuesday</th>
+      <td colspan="2" title="Subba Rao Y.V">Algorithms</td>
+      <td colspan="2"></td>
+      <td></td>
+      <td title="Nagender Kumar Suryadevara">PPL</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Wednesday</th>
+      <td title="Subba Rao Y.V">Algorithms</td>
+      <td colspan="3" title="Nagender Kumar Suryadevara">Internet Technologies Lab</td>
+      <td title="Anupama Potluri">IT</td>
+      <td colspan="2"></td>
+    </tr>
+    <tr>
+      <th>Thursday</th>
+      <td></td>
+      <td colspan="1" title="Digambar Pawar">DBMS</td>
+      <td colspan="2" title="Nagender Kumar Suryadevara">Internet Technologies</td>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <th>Friday</th>
+      <td colspan="2" title="Nagender Kumar Suryadevara">Principles of Programming Language</td>
+      <td colspan="2" title="Anupama Potluri">Operating System</td>
+      <td colspan="3"></td>
+    </tr>
+  </table>
+</body>
+</html>

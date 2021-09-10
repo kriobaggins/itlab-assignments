@@ -1,0 +1,16 @@
+div.wrapper {
+  margin: auto;
+  width: 80%;
+  /* margin-top: 60px; */
+}
+
+table {
+  border-collapse: collapse;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+td {
+  border: 1px solid #aaa;
+  padding: 56px 8px;
+}

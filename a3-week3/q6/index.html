@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    Important Meta tags declaring the character encoding and the viewport
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    Google Online Fonts to get beautiful fonts from web like 
+    Poppins for sans serif and IBM Plex Mono for monospace font
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!--
+    External CSS files
+  -->
+  <link rel="stylesheet" href="../public/global.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Q6 | Frame Formats</title>
+</head>
+<body>
+
+  <!-- NavBar component start -->
+  <nav class="navbar">
+    <a href=".." class="back-button">
+      &#8592
+    </a>
+    <div "current-page">Question 6 | Frame Formats</div>
+  </nav>
+  <!-- NavBar component end -->
+
+  <!--FrameFormat Components start -->
+  <div class="wrapper">
+
+    <!--Height 60 component has a padding of 60px top and bottom-->
+    <div class="height-60"></div>
+    <div class="sub-question">
+      <h1 id="a">a.</h1>
+      <table >
+        <tr> <td></td> <td></td> <td></td>
+        </tr>
+        <!--colspan attribute can be used to span
+        the cell across multiple columns-->
+        <tr> <td colspan="3"></td> </tr>
+      </table>
+    </div>
+    <!--Height 30 component has a padding of 30px top and bottom-->
+    <div class="height-30"></div>
+
+    <div class="sub-question">
+      <h1 id="b">b.</h1>
+      <table >
+        <!--With colgroup and col elements, we can specify 
+        the relative weightage for the size-->
+        <colgroup>
+          <col width="100">
+          <col width="100">
+          <col width="100">
+          <col width="100">
+        </colgroup>
+        <tr> <td colspan="2"></td> <td colspan="2"></td> 
+        </tr>
+        <!--rowspan attribute can be used to span
+        the cell across multiple rows-->
+        <tr> <td colspan="2"></td> <td colspan="2" rowspan="2"></td> 
+        </tr>
+        <tr> <td></td> <td></td> 
+        </tr>
+      </table>
+    </div>
+    <div class="height-30"></div>
+
+    <div class="sub-question">
+      <h1 id="c">c.</h1>
+      <table >
+        <tr> <td colspan="4"></td>
+        </tr>
+        <tr> <td></td> <td></td> <td></td> <td rowspan=2></td> 
+        </tr>
+        <tr> <td></td> <td></td> <td></td>
+        </tr>
+      </table>
+    </div>
+    <div class="height-30"></div>
+
+    <div class="sub-question">
+      <h1 id="d">d.</h1>
+      <table >
+        <tr> <td rowspan=4></td> <td></td> 
+        </tr>
+        <tr> <td></td> 
+        </tr>
+        <tr> <td></td> 
+        </tr>
+        <tr> <td></td> 
+        </tr>
+      </table>
+    </div>
+    <div class="height-30"></div>
+
+    <div class="sub-question">
+      <h1 id="e">e.</h1>
+      <table >
+        <tr> <td></td> <td colspan="2"></td> <td></td> <td></td> 
+        </tr>
+        <tr> <td rowspan="2"></td> <td></td> <td></td> <td rowspan="2" colspan="2"></td>
+        </tr>
+        <tr> <td></td> <td></td> 
+        </tr>
+      </table>
+    </div>
+    <div class="height-30"></div>
+
+  </div>
+  <!--FrameFormat Components end-->
+
+</body>
+</html>
