@@ -1,0 +1,48 @@
+img.horizontal, 
+img.vertical { position: absolute; z-index: -12 }
+
+img.horizontal {
+  top: 153px;
+  left: 16%;
+  transform: translate(-50%, 0);
+}
+
+img.vertical {
+  bottom: 20px;
+  right: 10%;
+  transform: translate(50%, 0) rotate(90deg);
+}
+
+.wrapper {
+  padding: 40px 60px;
+  width: 70%;
+  margin: 0 auto;
+  z-index: 0;
+}
+
+.content > h2 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.content > div {
+  font-family: 'IBM Plex mono', monospace;
+  font-weight: 500;
+  color: rgba(17, 24, 39, 0.8);
+}
+
+.content > div > p { color: inherit }
+
+pre {
+  margin: 20px 0;
+  padding: 18px 18px;
+  background-color: #384252 !important;
+  color: white;
+  border-radius: 14px;
+}
+
+pre > code {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    Important Meta tags declaring the character encoding and the viewport
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    Google Online Fonts to get beautiful fonts from web like 
+    Poppins for sans serif and IBM Plex Mono for monospace font
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!--
+    External CSS files
+  -->
+  <link rel="stylesheet" href="../public/global.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Q4 | HTML Tags</title>
+</head>
+<body>
+  <!-- NavBar component start -->
+  <nav class="navbar">
+    <a href=".." class="back-button">
+      &#8592
+    </a>
+    <div "current-page">Question 4 | HTML Tags</div>
+  </nav>
+  <!-- NavBar component end -->
+
+  <img class="horizontal" src="../public/bubble_pattern.svg" width=350px alt="">
+  <img class="vertical" src="../public/bubble_pattern.svg" width=350px alt="">
+  <div class="height-120"></div>
+  <div class="card wrapper">
+    <div class="height-15"></div>
+    <div class="content superscript">
+      <h2>Superscript</h2>
+      <div>
+        Superscript tag <code>&lt;sup&gt;</code> as it says renders the text 
+        inside the tag raised above the normal baseline with smaller text. 
+        This tag can be used to represent mathematical equations like powers.
+        <p>Ex: a<sup>2</sup> + b<sup>2</sup> + 2ab = (a+b)<sup>2</sup></p>
+
+        <pre class="card"> <code> &lt;p&gt;a&lt;sup&gt;2&lt;/sup&gt; + b&lt;sup&gt;2&lt;/sup&gt; + 2ab = (a+b)&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt; </code> </pre>
+      </div>
+    </div>
+
+    <div class="height-30"></div>
+    <div class="content subscript">
+      <h2>Subscript</h2>
+      <div>
+        Subscript tag <code>&lt;sub&gt;</code> renders the text inside the tag
+        raised below the normal baseline with smaller text. This tag can be 
+        used to represent mathematical variables or Chemical formulas.
+        <p>Ex: H<sub>2</sub>O<p>
+        <pre class="card"> <code> &lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt; </code> </pre>
+      </div>
+    </div>
+
+    <div class="height-30"></div>
+    <div class="content strike-through">
+      <h2>Strike Through</h2>
+      <div>
+        The Strike Through tag <code>&lt;strike&gt;</code> is used to strike 
+        out the content inside it. It can be used for applications like todo 
+        app to strike out the task after completition to act as a good visual 
+        guide that the task has been completed
+        <p>Ex: <strike>This text is striked</strike><p>
+        <pre class="card"> <code> &lt;p&gt;&lt;strike&gt;This text is striked&lt;/strike&gt;&lt;/p&gt; </code> </pre>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
