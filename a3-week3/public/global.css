@@ -19,14 +19,11 @@ div.height-120 {padding: 120px 0}
 
 /* Body CSS font and color declaration */
 body {
-  font-family: 'Poppins', 'Roboto', 'Arial', sans-serif;
-
+  font-family: 'Poppins', 'Arial', sans-serif;
   background-color: #fafbfd;
 }
 
-/**
- * Card Component CSS
- */
+/* CARD COMPONENT STYLING */
 
 /* card CSS */
 .card {
@@ -35,9 +32,7 @@ body {
               0px 12px 24px rgba(0, 0, 0, 0.02);
 }
 
-/**
- * Navigation Bar CSS
- */
+/* NAVIGATION COMPONENT STYLING */
 
 /* NavBar wrapper CSS */
 .navbar {
@@ -74,6 +69,7 @@ body {
   transition: 0.2s ease-in-out;
 }
 
+
 /* NavBar Back button link CSS hover action */
 .navbar > a:hover {
   transform: scale(1.07);
@@ -87,3 +83,94 @@ body {
   font-size: 20px;
 }
 
+/* INPUT BLOCKS STYLING */
+
+/* Common styles for both input and text area */
+.input,
+.textarea {
+  outline: none;
+  border: none;
+
+  background: transparent;
+  border-bottom: 2px solid rgba(17, 24, 39, 0.25);
+
+  transition: all 0.2s ease-in-out;
+}
+
+/* input display css */
+.input{
+  padding: 0;
+  padding-top: 10px;
+  width: 100%;
+  height: 35px;
+}
+
+/* textarea display css and resize set to none */
+.textarea {
+  width: 100%;
+  padding: 10px 0px;
+  padding-top: 30px;
+  resize: none;
+}
+
+/*RFEFERENCE: `+` Adjacent sibling combinator https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator */
+
+/* Common CSS for label of each input when the input 
+ * is invalid (empty) or unfocused */
+.label,
+.input:invalid + .label
+.textarea:invalid + .label  {
+  position: absolute;
+  transform: translateY(-50%);
+  left: 20px;
+  right: 0;
+  top: 60%;
+
+  font-size: 16px;
+
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+}
+
+/* custom label css when label 
+ * is followed by input element */
+.input + .label,
+.input:invalid + .label { bottom: -20%; }
+
+/* custom label css when label 
+ * is followed by textarea element */
+.textarea + .label,
+.textarea:invalid + .label { top: 15%; }
+
+/* CSS for textboxes when the value in textbox 
+ * is focused or valid (not empty) */
+.textarea:focus,
+.textarea:valid,
+.input:focus,
+.input:valid {
+  border-bottom: 2px solid #10aae9;
+  margin-bottom: 0;
+}
+
+/* CSS for label followed by textboxes when the value 
+ * in the box is focused or valid (not empty) */
+.input:focus + .label,
+.input:valid + .label,
+.textarea:focus + .label,
+.textarea:valid + .label{
+  left: 20px;
+  transform: translateY(0);
+
+  font-size: 10px;
+  color: #10aae9;
+}
+ 
+/* CSS for label followed by textarea when the value 
+ * in the box is focused or valid (not empty) */
+.input:focus + .label,
+.input:valid + .label{ top: 9%; }  
+
+/* CSS for label followed by input when the value in 
+ * the box is focused or valid (not empty) */
+.textarea:focus + .label,
+.textarea:valid + .label{ top: 4%; } 

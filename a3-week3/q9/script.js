@@ -34,10 +34,22 @@ function emailCheckError( value ) {
 document.getElementById('submitButton')
   .addEventListener("click", function(e) {
     /* preventDefault to disable reload on submitting the form 
-     * REFERENCE: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault */
+     * REFERENCE: 
+     * https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+     */
     e.preventDefault();
-    error.innerHTML = emailCheckError(toBlock.value) ? "email invalid" : null
+    emailCheckErrorValue = emailCheckError(toBlock.value);
+    error.innerHTML = emailCheckErrorValue ? "email invalid" : null
+
+    let to = document.getElementById('to').value;
+    let subject = document.getElementById('subject').value;
+    let body = document.getElementById('body').textContent;
+
+    let alertValue =`to email: ${to}\nsubject: ${subject}\nbody: ${body}`
+
+    !emailCheckErrorValue && (
+        console.log({to, subject, body}) || alert(alertValue))
+    
 })
 
 
-console.log(emailCheckError(toBlock.value))
