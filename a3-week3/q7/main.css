@@ -1,6 +1,10 @@
 /* applying fonts for text fields */
 input, textarea, label { font-family: 'Poppins', 'Roboto', 'Arial', sans-serif; }
 
+/** styles for the radio and checkboxes inside a list to 
+ * have sufficient whitespace for better User Interface
+ */
+
 ul { padding-left: 10px; }
 
 ul > li { 

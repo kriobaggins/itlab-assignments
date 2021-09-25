@@ -2,6 +2,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* styling the select box for picking the month */
 select {
   border: none;
   border-bottom: 2px solid #13b0ea;
@@ -47,9 +48,7 @@ tr:nth-child(1) {
   background-color: #fafbfd;
 }
  
-tr:nth-child(2) { 
-  height: 80px;
-}
+tr:nth-child(2) { height: 80px; }
 
 td { color: #268f60; }
 .weekend { color: #bc3737; }

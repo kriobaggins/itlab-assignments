@@ -1,5 +1,10 @@
+// one dollar in indian rs. we can even get the current price
+// if we can add external APIs with fetch API to get data 
+// from external APIs.
 const oneDollar = 75
 
+// data for the select optins which will be replaced dynamically
+// when the user changes the currency option
 const services = {
   ticket: [
     {preText: "Lower Ring", dollar: "$15", rupee: `₹${15*oneDollar}`},
@@ -23,7 +28,11 @@ const services = {
   ],
 }
 
-
+/** An onchange handler function which will retrive the 
+ * current values of packages respective to the currency 
+ * chosen and total cost and also change the cost and output
+ * in the payments section for user to pay the amount
+ */
 function handleCostOnChange() {
   let ticketCost = parseInt(document.getElementById("ticket").value.replace(/[$,₹]+/g,""))
   let hotelRoomCost = parseInt(document.getElementById("hotelRoom").value.replace(/[$,₹]+/g,""))
@@ -42,6 +51,9 @@ function handleCostOnChange() {
   }
 }
 
+/** onchange handler to change the costs of the services 
+ * when the currency choice changes
+ */
 function handleCurrencyOnChange() {
   let currency = document.getElementById("currency").value;
 

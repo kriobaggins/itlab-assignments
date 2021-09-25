@@ -5,9 +5,9 @@ div.wrapper {
 }
 
 table {
-  border-collapse: collapse;
-  box-sizing: border-box;
   width: 100%;
+  box-sizing: border-box;
+  border-collapse: collapse;
 }
 
 td {
@@ -21,6 +21,11 @@ td {
   box-sizing: border-box;
   font-size: 0;
 }
+
+/**
+ * CSS for all the containers to create a custom grid 
+ * like layout according to the question
+ */
 
 .container1 {
   margin: 0 auto;
@@ -45,7 +50,10 @@ td {
   width: calc(1100px/4);
   height: 150px;
 }
-
+/**
+ * nth-child is a way to use elements based on the positions in a group of siblings 
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-chilid
+ */
 .container2 > .grid-item:nth-child(6), 
 .container2 > .grid-item:nth-child(5) { width: calc(1100px/4 - 1px); }
 
@@ -56,12 +64,11 @@ td {
 
 .container2 > .grid-item:nth-child(4) { 
   height: 300px; 
+  transform: translate(-2.5px, 0.5px);
   float: right; 
-  font-size: 0;
-  transform: translate(-2.5px, 0.5px)
-}
 
-/* .container2 > .grid-item:nth-child(4) { border-bottom: 1px solid transparent } */
+  font-size: 0;
+}
 
 .container3 {
   margin: 0 auto;
@@ -74,9 +81,7 @@ td {
   height: 150px;
 }
 
-.container3 > .grid-item:first-child {
-  width: calc(1100px + 6px);
-}
+.container3 > .grid-item:first-child { width: calc(1100px + 6px); }
 
 .container3 > .grid-item:nth-child(5) {
   height: 301.5px; 
@@ -94,11 +99,11 @@ td {
   height: 150px;
 }
 
-
 .container4 > .grid-item:nth-child(1) { 
-  border-top: 1px solid #999; 
   height: calc(4* 151px + 2px);
   float: left;
+  
+  border-top: 1px solid #999; 
 }
 
 

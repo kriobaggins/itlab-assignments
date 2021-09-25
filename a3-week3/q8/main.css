@@ -1,6 +1,9 @@
 /* applying fonts for text fields */
 input, textarea, label { font-family: 'Poppins', 'Roboto', 'Arial', sans-serif; }
 
+/** styles for the radio and checkboxes inside a list to 
+ * have sufficient whitespace for better User Interface
+ */
 ul { padding-left: 10px; }
 
 ul > li { 
@@ -14,20 +17,24 @@ ul > li > input {
 }
 
 select {
+  width: 38rem;
+
+  margin: auto;
   border: none;
   border-bottom: 2px solid #13b0ea;
   padding: 12px;
-  margin: auto;
+
   cursor: pointer;
-  width: 38rem;
   box-shadow: none;
 }
 
+/* styling for divider between different sections of the form */
 hr {
   margin-bottom:8px;
   color: #eee;
 }
 
+/* form section header */
 h4 {
   padding-left: 1.2rem;
   margin-bottom: 16px;
@@ -91,6 +98,5 @@ button.active {
 /* Scale up when button is hovered */
 button.active:hover { transform: scale(1.07) }
 
-.expiry {
-  width: 4rem;
-}
+/* select box size for expiry fields in payment section */
+.expiry { width: 4rem; }

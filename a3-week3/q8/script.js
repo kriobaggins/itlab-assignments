@@ -8,16 +8,20 @@ const phoneRegex = /^[789]\d{9}$/;
 
 
 /**
-  * REFERENCE: The regex string to validate multiple ttps://stackoverflow.com/a/9315696
+  * REFERENCE: The regex string to validate multiple https://stackoverflow.com/a/9315696
   */
 
 const cardRegex = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
+
+// cvv is a 3digit pin
 const cvvRegex = /^\d{3}$/;
 
 const formValidation = (data) => {
   let phone = phoneRegex.test(data.phone);
   let email = emailRegex.test(data.email);
 
+  // validate the cvv and cardNo only if debit or credit 
+  // options are chosen
   if(data.paymentMethod === "debit" || data.paymentMethod === "credit"){
     let cvv = cvvRegex.test(data.cvv);
     let card = cardRegex.test(data.cardNo);
@@ -27,6 +31,13 @@ const formValidation = (data) => {
   return {phone, email};
 }
 
+/** getFormData function to get the form data on calling the 
+ * function and converting into object depending upon the 
+ * payment option of the user
+ * @param the form element from DOM
+ * @return form data object filtered based on the user's choice
+ * of the payment method
+ */
 function getFormData(info) {
   const formData = new FormData(info);
 
@@ -89,30 +100,19 @@ paymentMethod: ${data.paymentMethod}
   let errordcvv = document.getElementById('errordcvv');
   let errordcard = document.getElementById('errordcard');
 
-  !validation.email ? (errorEmail.innerHTML = "Email Invalid") : null;
-  !validation.phone ? (errorPhone.innerHTML = "Phone No. Invalid") : null;
+  !validation.email ? (errorEmail.innerHTML = "Email Invalid. Enter email of format xxx@xxx.xxx") : (errorEmail.innerHTML = "");
+  !validation.phone ? (errorPhone.innerHTML = "Phone No. Invalid. Enter 10 Digit mobile no") : (errorPhone.innerHTML = "");
   if (data.paymentMethod == "credit") {
-    !validation.cvv ? (errorccvv.innerHTML = "CVV Invalid") : null;
-    !validation.card ? (errorccard.innerHTML = "Card No Invalid") : null;
+    !validation.cvv ? (errorccvv.innerHTML = "CVV Invalid. Enter 3digit number on back of your card") : (errorccvv.innerHTML = "");
+    !validation.card ? (errorccard.innerHTML = "Card No Invalid") : (errorccard.innerHTML = "");
   } else if (data.paymentMethod == "debit") {
-    !validation.cvv ? (errordcvv.innerHTML = "CVV Invalid") : null;
-    !validation.card ? (errordcard.innerHTML = "Card No Invalid") : null;
+    !validation.cvv ? (errordcvv.innerHTML = "CVV Invalid. Enter 3digit number on back of your card") : (errordcvv.innerHTML = "");
+    !validation.card ? (errordcard.innerHTML = "Card No Invalid") : (errordcard.innerHTML = "");
   }
 
   if (validation.email && validation.phone) {
     let validation = formValidation(data)
-    !validation.email ? (errorEmail.innerHTML = "Email Invalid") : (errorEmail.innerHTML = "");
-    !validation.phone ? (errorPhone.innerHTML = "Phone No. Invalid") : (errorPhone.innerHTML = "");
     if ((data.paymentMethod === "credit" || data.paymentMethod === "debit") && validation.card && validation.cvv) {
-      if (data.paymentMethod == "credit") {
-        !validation.cvv ? (errorccvv.innerHTML = "CVV Invalid") : (errorccvv.innerHTML = "");
-        !validation.card ? (errorccard.innerHTML = "Card No Invalid") : (errorccard.innerHTML = "");
-
-      } else if (data.paymentMethod == "debit") {
-        !validation.cvv ? (errordcvv.innerHTML = "CVV Invalid") : (errordcvv.innerHTML = "");
-        !validation.card ? (errordcard.innerHTML = "Card No Invalid") : (errordcard.innerHTML = "");
-      }
-
       console.log(data);
       alert(alertString);
     } else if (data.paymentMethod == "dd"){

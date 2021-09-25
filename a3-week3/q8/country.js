@@ -1,3 +1,5 @@
+// list of all the country names stored as an array
+// REFERENCE: https://www.codeinwp.com/snippets/list-of-all-countries-html-select-javascript-and-json-format/#countries-array
 const countries = [
   "Afghanistan",
   "Åland Islands",
@@ -252,6 +254,8 @@ const countries = [
 
 let countrySelect = document.getElementById("countrySelect");
 
+// using for loop to dynamically create options and adding 
+// them to the select box
 for(let i=0; i<countries.length; i++) {
   countrySelect.options[i] = new Option(countries[i], countries[i])
 }

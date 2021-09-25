@@ -1,3 +1,5 @@
+// onchange handler to change view of input options depending
+// upon the option of payment the user has chosen to pay
 function handlePaymentMethodOnChange() {
   let paymentMethod = document.getElementById("paymentMethod").value;
   console.log(paymentMethod);
@@ -20,8 +22,6 @@ function handlePaymentMethodOnChange() {
     credit.style.display = "none";
     debit.style.display = "none";
   }
-
-
 }
 
 handlePaymentMethodOnChange();
