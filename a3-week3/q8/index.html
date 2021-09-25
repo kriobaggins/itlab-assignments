@@ -142,16 +142,18 @@
 
         <div id="credit">
           <div class="input-style">
-            <input class="input" name="creditCardNo" type="text" autocomplete="off" required />
+            <input class="input" name="creditCardNo" type="text" autocomplete="off"/>
             <label for="input" class="label">Credit Card Number</label>
+            <div class="error" id="errorccard"></div>
           </div>
           <div class="input-style">
-            <input class="input" name="creditcvv" type="password" autocomplete="off" required />
+            <input class="input" name="creditcvv" type="password" autocomplete="off"/>
             <label for="input" class="label">cvv</label>
+            <div class="error" id="errorccvv"></div>
           </div>
           <div class="input-style">
             <div>Expiry Date</div>
-            <select class="expiry expiry-mo" name="creditExpiryMo" id="creditExpiryMo" required>
+            <select class="expiry expiry-mo" name="creditExpiryMo" id="creditExpiryMo">
               <option value="01">01</option>
               <option value="02">02</option>
               <option value="03">03</option>
@@ -165,7 +167,7 @@
               <option value="11">11</option>
               <option value="12">12</option>
             </select>
-            <select class="expiry expiry-yr" name="creditExpiryYr" id="creditExpiryYr" required>
+            <select class="expiry expiry-yr" name="creditExpiryYr" id="creditExpiryYr">
               <option value="2021">2021</option>
               <option value="2022">2022</option>
               <option value="2023">2023</option>
@@ -182,16 +184,18 @@
 
         <div id="debit">
           <div class="input-style">
-            <input class="input" name="debitCardNo" type="text" autocomplete="off" required />
+            <input class="input" name="debitCardNo" type="text" autocomplete="off" />
             <label for="input" class="label">Debit Card Number</label>
+            <div class="error" id="errordcard"></div>
           </div>
           <div class="input-style">
-            <input class="input" name="debitcvv" type="password" autocomplete="off" required />
+            <input class="input" name="debitcvv" type="password" autocomplete="off"/>
             <label for="input" class="label">cvv</label>
+            <div class="error" id="errordcvv"></div>
           </div>
           <div class="input-style">
             <div>Expiry Date</div>
-            <select class="expiry expiry-mo" name="creditExpiryMo" id="creditExpiryMo" required>
+            <select class="expiry expiry-mo" name="debitExpiryMo" id="debitExpiryMo">
               <option value="01">01</option>
               <option value="02">02</option>
               <option value="03">03</option>
@@ -205,7 +209,7 @@
               <option value="11">11</option>
               <option value="12">12</option>
             </select>
-            <select class="expiry expiry-yr" name="creditExpiryYr" id="creditExpiryYr" required>
+            <select class="expiry expiry-yr" name="debitExpiryYr" id="debitExpiryYr">
               <option value="2021">2021</option>
               <option value="2022">2022</option>
               <option value="2023">2023</option>
@@ -222,11 +226,11 @@
 
         <div id="dd">
           <div class="input-style">
-            <input class="input" name="ddAccNo" type="text" autocomplete="off" required />
+            <input class="input" name="ddAccNo" type="text" autocomplete="off"/>
             <label for="input" class="label">Account No.</label>
           </div>
           <div class="input-style">
-            <input class="input" name="ddPass" type="password" autocomplete="off" required />
+            <input class="input" name="ddPass" type="password" autocomplete="off"/>
             <label for="input" class="label">Password</label>
           </div>
           <div class="input-style">

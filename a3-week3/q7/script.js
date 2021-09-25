@@ -3,9 +3,7 @@
   */
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-/**
-  * REFERENCE: The regex string to validate mobile number https://stackoverflow.com/a/3813226/12335360
-  */
+// the mobile numbers in India start with 7 or 8 or 9 and then there are 9 more numbers following which can be anything digit
 const phoneRegex = /^[789]\d{9}$/;
 
 const formValidation = (data) => {
