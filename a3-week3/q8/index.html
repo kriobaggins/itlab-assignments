@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    Important Meta tags declaring the character encoding and the viewport
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    Google Online Fonts to get beautiful fonts from web like 
+    Poppins for sans serif and IBM Plex Mono for monospace font
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!--
+    External CSS files
+  -->
+  <link rel="stylesheet" href="../public/global.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Q8 | International Seminar</title>
+</head>
+<body>
+  <!-- NavBar component start -->
+  <nav class="navbar">
+    <a href=".." class="back-button">
+      &#8592
+    </a>
+    <div "current-page">Question 8 | International Seminar</div>
+  </nav>
+  <!-- NavBar component end -->
+  <div class=wrapper>
+    <!-- Form component start -->
+    <div class="card form-div">
+      <form id="customerInfo" onsubmit="return submitForm()">
+
+        <h4>Personal Information</h4>
+        <div class="input-style">
+          <input class="input" id="name" name="name" type="text" autocomplete="off" required />
+          <label class="label" for="input">Name</label>
+        </div>
+
+        <div class="input-style">
+          <input class="input" name="phone" type="text" autocomplete="off" required />
+          <label for="input" class="label">Phone Number</label>
+          <div class="error" id="errorPhone"></div>
+        </div>
+
+        <div class="input-style">
+          <input class="input" name="email" type="text" autocomplete="off" required />
+          <label for="input" class="label">Email</label>
+          <div class="error" id="errorEmail"></div>
+        </div>
+
+        <div class="input-style">
+          <label class="radio">Job Role</label> <br>
+          <select name="jobRole" required>
+            <option value="Student">Student</option>
+            <option value="Faculty">Faculty</option>
+            <option value="Professionals">Professionals</option>
+            <option value="Company Representatives">Company Representatives</option>
+          </select>
+        </div>
+
+        <div class="input-style">
+          <label class="radio">Gender</label> <br>
+          <ul>
+            <li> <input type="radio" id="Male" name="gender" value="Male" required><label for="Male">Male</label> </li>
+            <li> <input type="radio" id="Female" name="gender" value="Female" required><label for="Female">Female</label> </li>
+            <li> <input type="radio" id="Other" name="gender" value="Other" required><label for="Other">Other</label> </li>
+          </ul>
+        </div>
+
+        <div class="input-style">
+          <label>Country</label> <br>
+          <select name="countrySelect" id="countrySelect" required>
+          </select>
+        </div>
+
+        <hr>
+
+        <h4>Package Services</h4>
+
+        <div class="input-style">
+          <label class="radio">Currency</label> <br>
+          <select name="currency" id="currency" required onchange="handleCurrencyOnChange()">
+            <option value="dollar">$ Dollar</option>
+            <option value="rupee">₹ Rupee</option>
+          </select>
+        </div>
+
+        <div class="input-style">
+          <label class="radio">Seat Ticket</label> <br>
+          <select name="ticket" id="ticket" required onchange="handleCostOnChange()">
+            <option value="">Last Ring</option>
+            <option value="">Middle Ring</option>
+            <option value="">First Ring</option>
+            <option value="">Golden Ring</option>
+          </select>
+        </div>
+        
+        <div class="input-style">
+          <label class="radio">Hotel room/suite</label> <br>
+          <select name="hotelRoom" id="hotelRoom" required onchange="handleCostOnChange()">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+          </select>
+        </div>
+
+        <div class="input-style">
+          <label class="radio">Food and Meals</label> <br>
+          <select name="meals" id="meals" required onchange="handleCostOnChange()">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+          </select>
+        </div>
+
+        <div class="input-style">
+          <label class="radio">Transport</label> <br>
+          <select name="transport" id="transport" required onchange="handleCostOnChange()">
+            <option value=""></option>
+            <option value=""></option>
+          </select>
+        </div>
+
+        <hr>
+        <h4>Payment</h4>
+
+        <div class="input-style"> Total Package cost: <strong><span id="totalCost"></span></strong> </div>
+        <div class="input-style">
+          <label class="radio">Payment Method</label> <br>
+          <select name="paymentMethod" id="paymentMethod" required onchange="handlePaymentMethodOnChange()">
+            <option value="credit">Credit Card</option>
+            <option value="debit">Debit Draft</option>
+            <option value="dd">Demand Draft</option>
+          </select>
+        </div>
+
+        <div id="credit">
+          <div class="input-style">
+            <input class="input" name="creditCardNo" type="text" autocomplete="off" required />
+            <label for="input" class="label">Credit Card Number</label>
+          </div>
+          <div class="input-style">
+            <input class="input" name="creditcvv" type="password" autocomplete="off" required />
+            <label for="input" class="label">cvv</label>
+          </div>
+          <div class="input-style">
+            <div>Expiry Date</div>
+            <select class="expiry expiry-mo" name="creditExpiryMo" id="creditExpiryMo" required>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+            <select class="expiry expiry-yr" name="creditExpiryYr" id="creditExpiryYr" required>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="debit">
+          <div class="input-style">
+            <input class="input" name="debitCardNo" type="text" autocomplete="off" required />
+            <label for="input" class="label">Debit Card Number</label>
+          </div>
+          <div class="input-style">
+            <input class="input" name="debitcvv" type="password" autocomplete="off" required />
+            <label for="input" class="label">cvv</label>
+          </div>
+          <div class="input-style">
+            <div>Expiry Date</div>
+            <select class="expiry expiry-mo" name="creditExpiryMo" id="creditExpiryMo" required>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+            <select class="expiry expiry-yr" name="creditExpiryYr" id="creditExpiryYr" required>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="dd">
+          <div class="input-style">
+            <input class="input" name="ddAccNo" type="text" autocomplete="off" required />
+            <label for="input" class="label">Account No.</label>
+          </div>
+          <div class="input-style">
+            <input class="input" name="ddPass" type="password" autocomplete="off" required />
+            <label for="input" class="label">Password</label>
+          </div>
+          <div class="input-style">
+            In Favour of: <strong>World Seminar Alliance<strong>
+          </div>
+        </div>
+
+        <div>
+          <button class="active" id="submitButton" type="submit">Submit &#8594 </button>
+        </div>
+      </form>
+    </div>
+    <!-- Form component end -->
+  </div>
+
+</body>
+<script src="country.js"> </script>
+<script src="packages.js"> </script>
+<script src="payment.js"> </script>
+<script src="script.js"> </script>
+</html>

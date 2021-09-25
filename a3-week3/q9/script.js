@@ -1,17 +1,12 @@
-// get the dom elements of the to input value 
-// and the error block associated with it
-let toBlock = document.getElementById('to');
-let error = document.getElementById('error');
-
 
 /** Check the error in to (email) field
   * @param value String which takes input of the string from to 
   * block which is a list of emails separated by semicolon
   * @return Boolean true if there is error in the toBlock value
   */
-function emailCheckError( value ) {
+function emailValidation( value ) {
   let toArray = value.replace(/\s+/g, "").split(";");
-  let error = false;
+  let error = true;
 
   /**
     * REFERENCE: The regex string to validate email id https://stackoverflow.com/a/46181/12335360
@@ -20,36 +15,39 @@ function emailCheckError( value ) {
 
   for (let i = 0; i < toArray.length; i++) { 
     if (!emailRegex.test(toArray[i])) {
-      error = true;
+      error = false;
     }
   }
 
   return error;
 }
 
-/** EventLister for submit button
+/** onsubmit function to run on form submission
   * use the emailCheckError function to change the 
-  * innerHTML of the to field error div
+  * innerHTML of the to field error div and alert for correct value
   */
-document.getElementById('submitButton')
-  .addEventListener("click", function(e) {
-    /* preventDefault to disable reload on submitting the form 
-     * REFERENCE: 
-     * https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
-     */
-    e.preventDefault();
-    emailCheckErrorValue = emailCheckError(toBlock.value);
-    error.innerHTML = emailCheckErrorValue ? "email invalid" : null
+function submitForm() {
+  const info = document.getElementById("mailInfo");
+  const formData = new FormData(info);
+  const toError = document.getElementById("error");
 
-    let to = document.getElementById('to').value;
-    let subject = document.getElementById('subject').value;
-    let body = document.getElementById('body').textContent;
+  const data = {
+    to: formData.get("to"),
+    subject: formData.get("subject"),
+    body: formData.get("body"),
+  }
+  let alertValue =`to email: ${data.to}\nsubject: ${data.subject}\nbody: ${data.body}`
+  
+  validEmail = emailValidation(data.to);
+  !validEmail ? (toError.innerHTML = "Invalid Email") : (toError.innerHTML = "")
 
-    let alertValue =`to email: ${to}\nsubject: ${subject}\nbody: ${body}`
+  // !emailCheckError ? (toError.innerHTML = "Invalid Email Field") : (toError.innerHTML = "")
 
-    !emailCheckErrorValue && (
-        console.log({to, subject, body}) || alert(alertValue))
-    
-})
-
-
+  if(validEmail) {
+    !validEmail ? (toError.innerHTML = "Invalid Email") : (toError.innerHTML = "")
+    console.log(data);
+    alert(alertValue);
+  }
+  
+  return false;
+}

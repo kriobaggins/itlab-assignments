@@ -35,15 +35,15 @@
 
   <!-- Form component start -->
   <div class="card form-div">
-    <form>
+    <form id="mailInfo" onsubmit="return submitForm()">
       <div class="input-style">
-        <input class="input" id="to" type="text" value="abc@xyz.com; meherchaitanya18802@gmail.com" autocomplete="off" required />
+        <input class="input" id="to" name="to" type="text" value="abc@xyz.com; meherchaitanya18802@gmail.com" autocomplete="off" required />
         <label class="label" for="input">To</label>
         <div class="error to" id="error"></div>
       </div>
 
       <div class="input-style">
-        <input class="input" id="subject" type="text" value="Assign #3 Meher Chaitanya" autocomplete="off" required />
+        <input class="input" id="subject" name="subject" type="text" value="Assign #3 Meher Chaitanya" autocomplete="off" required />
         <label class="label" for="input" >Subject</label>
       </div>
       <div class="input-style">

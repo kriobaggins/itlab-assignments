@@ -52,11 +52,16 @@ td {
 .container2 > .grid-item:first-child, 
 .container2 > .grid-item:nth-child(2), 
 .container2 > .grid-item:nth-child(3),
-.container2 > .grid-item:nth-child(4),
-.container2 > .grid-item:nth-child(7) { width: calc(1100px/2 ); }
+.container2 > .grid-item:nth-child(4){ width: calc(1100px/2 ); }
 
-.container2 > .grid-item:nth-child(4) { border-bottom: 1px solid transparent }
-.container2 > .grid-item:nth-child(7) { border-top: 1px solid transparent }
+.container2 > .grid-item:nth-child(4) { 
+  height: 300px; 
+  float: right; 
+  font-size: 0;
+  transform: translate(-2.5px, 0.5px)
+}
+
+/* .container2 > .grid-item:nth-child(4) { border-bottom: 1px solid transparent } */
 
 .container3 {
   margin: 0 auto;
@@ -73,8 +78,10 @@ td {
   width: calc(1100px + 6px);
 }
 
-.container3 > .grid-item:nth-child(5) { border-bottom: 1px solid transparent}
-.container3 > .grid-item:nth-child(9) { border-top: 1px solid transparent; }
+.container3 > .grid-item:nth-child(5) {
+  height: 301.5px; 
+  float: right;
+}
 
 .container4 {
   margin: 0 auto;
@@ -87,13 +94,12 @@ td {
   height: 150px;
 }
 
-.container4 > .grid-item:nth-child(2n-1) {
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-}
 
-.container4 > .grid-item:nth-child(1) { border-top: 1px solid #999; }
-.container4 > .grid-item:nth-child(7) { border-bottom: 1px solid #999; }
+.container4 > .grid-item:nth-child(1) { 
+  border-top: 1px solid #999; 
+  height: calc(4* 151px + 2px);
+  float: left;
+}
 
 
 .container5 {
@@ -109,14 +115,12 @@ td {
 
 .container5 > .grid-item:nth-child(2) { width: calc(1100px*2/5 + 2px); }
 
-.container5 > .grid-item:nth-child(5),
-.container5 > .grid-item:nth-child(8),
-.container5 > .grid-item:nth-child(9) {
-  border-bottom: 1px solid transparent;
+.container5 > .grid-item:nth-child(5) { 
+  height: calc(2*151px); 
+  float: left; 
 }
-
-.container5 > .grid-item:nth-child(10),
-.container5 > .grid-item:nth-child(13),
-.container5 > .grid-item:nth-child(14) {
-  border-top: 1px solid transparent;
+.container5 > .grid-item:nth-child(8),
+.container5 > .grid-item:nth-child(9) { 
+  height: calc(2*151px); 
+  float: right; 
 }
