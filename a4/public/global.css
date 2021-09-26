@@ -21,6 +21,12 @@ body {
   margin: 0;
 }
 
+a.external::after {
+  content: "\f35d";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
 .navbar {
   /* position: fixed; */
   display: flex;

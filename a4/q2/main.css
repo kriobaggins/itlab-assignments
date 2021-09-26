@@ -81,10 +81,16 @@ main > .sidebar > ul > li > a.active::before {
 
 main > .content {
   flex: 4; 
+  margin: auto;
+  margin-top: 2rem;
+  padding: 1.2rem;
+  font-weight: 400;
 }
 
 main > .imagebar {
   flex: 1.25; 
+  text-align: center;
+  overflow: auto;
 }
 
 footer {
