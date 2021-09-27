@@ -19,10 +19,10 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1" class="active">Q1</a></li>
+        <li><a href="../q1">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a href="../q4">Q4</a></li>
+        <li><a class="active" href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>
@@ -30,28 +30,36 @@
 
   <?php
     include 'db_create.php';
+    session_start();
+
     $username=$_POST['username'];
     $password=$_POST['password'];
-    $phone=$_POST['phone'];
-    $register=$_POST['register'];
+    $remember=$_POST['remember'];
+    $login=$_POST['login'];
 
-    $sql="INSERT INTO $tablename(username, password, phone)
-      VALUES ('$username',  '" . md5($password) . "', '$phone')";
+    $sql = "SELECT * FROM $tablename WHERE username='$username'
+                     AND password='" . md5($password) . "'";
 
-
-    if (isset($register)) {
-      if ($conn->query($sql) === TRUE) {
-        header('Location: login.php');
+    if (isset($login)) {
+      $result = $conn->query($sql);
+      $rows = mysqli_num_rows($result);
+      if ($rows == 1) {
+        if($remember) {
+          setcookie("username", $username, time()+86400, "/q4");
+        } else {
+          setcookie("username", $username, 0, "/q4");
+        }
+        header('Location: index.php');
       } else {
-        echo ('<script>alert("user already exists")</script>');
+        echo ('<script>alert("username or password doesnt exist")</script>');
       }
     }
   ?>
 
   <a href="." style="text-align: center;">Go to Home</a>
   <main>
-    <form action="signup.php" method="POST">
-      <h2>Signup</h2>
+    <form action="login.php" method="POST">
+      <h2>Login</h2>
       <div class="textfield">
         <label for="username">Username</label>
         <input type="text" name="username" required>
@@ -60,15 +68,17 @@
         <label for="password">Password</label>
         <input type="password" name="password" required>
       </div>
-      <div class="textfield">
-        <label for="password">Phone No.</label>
-        <input type="number" name="phone" pattern="/^[789]\d{9}$/" required>
+      <div class="checkbox">
+        <input type="checkbox" name="remember" id="remember">
+        <label for="remember">Remember Me</label>
       </div>
-      <button type="submit" name="register">Register <span> &#8594 </span></button>
+      <button type="submit" name="login">Login <span> &#8594 </span></button>
       <div class="form-links">
-        <a class="form-link" href="login.php">Already have an Account? Login</a>
+        <a class="form-link" href="reset.php">Forgot Password?</a>
+        <a class="form-link" href="change_pass.php">Want to change Password?</a>
       </div>
     </form>
+
   </main>
 </body>
 </html>

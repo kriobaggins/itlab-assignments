@@ -15,7 +15,6 @@
     phone varchar(10) NOT NULL
   )";
 
-    // PRIMARY KEY (username)
   $conn = new mysqli($servername, $dbuname, $dbpass);
 
   if ($conn->connect_error) {

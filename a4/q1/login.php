@@ -53,11 +53,23 @@
     }
   ?>
 
+  <a href="." style="text-align: center;">Go to Home</a>
   <main>
     <form action="login.php" method="POST">
-      <input type="text" name="username" required>
-      <input type="password" name="password" required>
-      <input type="submit" name="login" value="Login">
+      <h2>Login</h2>
+      <div class="textfield">
+        <label for="username">Username</label>
+        <input type="text" name="username" required>
+      </div>
+      <div class="textfield">
+        <label for="password">Password</label>
+        <input type="password" name="password" required>
+      </div>
+      <button type="submit" name="login">Login <span> &#8594 </span></button>
+      <div class="form-links">
+        <a class="form-link" href="reset.php">Forgot Password?</a>
+        <a class="form-link" href="change_pass.php">Want to change Password?</a>
+      </div>
     </form>
 
   </main>

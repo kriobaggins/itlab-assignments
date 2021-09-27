@@ -60,24 +60,28 @@ main > .sidebar > ul > li > a {
   padding: 1rem;
   padding-left: 1.8rem;
   text-decoration: none;
-  color: var(--link-normal);
+  color: green;
 }
 
-main > .sidebar > ul > li > a.active {
-  background: var(--link-active-bg);
-  color: var(--black);
-  position: relative;
-}
 
-main > .sidebar > ul > li > a.active::before {
-  content: "";
-  position: absolute;
-  width: 0.4rem;
-  height: 100%;
-  top:0;
-  left:0;
-  background: var(--primary-color);
-}
+main > .sidebar > ul > li > a:active { color: red }
+main > .sidebar > ul > li > a:visited { color: blue }
+
+/* main > .sidebar > ul > li > a.active { */
+  /* background: var(--link-active-bg); */
+  /* color: var(--black); */
+  /* position: relative; */
+/* } */
+
+/* main > .sidebar > ul > li > a.active::before { */
+  /* content: ""; */
+  /* position: absolute; */
+  /* width: 0.4rem; */
+  /* height: 100%; */
+  /* top:0; */
+  /* left:0; */
+  /* background: var(--primary-color); */
+/* } */
 
 main > .content {
   flex: 4; 

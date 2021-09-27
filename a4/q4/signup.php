@@ -19,10 +19,10 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1" class="active">Q1</a></li>
+        <li><a href="../q1">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a href="../q4">Q4</a></li>
+        <li><a class="active" href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>

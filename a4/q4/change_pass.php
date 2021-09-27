@@ -19,10 +19,10 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1" class="active">Q1</a></li>
+        <li><a href="../q1">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a href="../q4">Q4</a></li>
+        <li><a class="active" href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>
@@ -30,45 +30,59 @@
 
   <?php
     include 'db_create.php';
+
     $username=$_POST['username'];
     $password=$_POST['password'];
-    $phone=$_POST['phone'];
-    $register=$_POST['register'];
+    $newpassword=$_POST['newpassword'];
+    $changepass=$_POST['changepass'];
 
-    $sql="INSERT INTO $tablename(username, password, phone)
-      VALUES ('$username',  '" . md5($password) . "', '$phone')";
+    $sql = "SELECT * FROM $tablename WHERE username='$username'
+            AND password='" . md5($password) ."'";
 
+    if (isset($changepass)) {
+      $result = $conn->query($sql);
+      $rows = mysqli_num_rows($result);
 
-    if (isset($register)) {
-      if ($conn->query($sql) === TRUE) {
-        header('Location: login.php');
+      if ($rows == 1) {
+        $sqlresetpass = "UPDATE $tablename
+        SET password = '" . md5($newpassword) ."'
+        WHERE username = '$username'";
+        if ($conn->query($sqlresetpass) === TRUE) {
+          echo ("
+          <script>
+            alert('password changed');
+            document.location = 'login.php';
+          </script>");
+        } else {
+          echo ('<script>alert("password change failed")</script>');
+        }
+
       } else {
-        echo ('<script>alert("user already exists")</script>');
+        echo ('<script>alert("username or password invalid")</script>');
       }
     }
   ?>
 
   <a href="." style="text-align: center;">Go to Home</a>
+
   <main>
-    <form action="signup.php" method="POST">
-      <h2>Signup</h2>
+    <form action="change_pass.php" method="POST">
+      <h2>Change Password</h2>
       <div class="textfield">
         <label for="username">Username</label>
         <input type="text" name="username" required>
       </div>
       <div class="textfield">
-        <label for="password">Password</label>
+        <label for="password">Current Password</label>
         <input type="password" name="password" required>
       </div>
       <div class="textfield">
-        <label for="password">Phone No.</label>
-        <input type="number" name="phone" pattern="/^[789]\d{9}$/" required>
+        <label for="password">New Password</label>
+        <input type="password" name="newpassword" required>
       </div>
-      <button type="submit" name="register">Register <span> &#8594 </span></button>
-      <div class="form-links">
-        <a class="form-link" href="login.php">Already have an Account? Login</a>
-      </div>
+      <button type="submit" name="changepass">Change Password <span> &#8594 </span></button>
     </form>
+
   </main>
 </body>
 </html>

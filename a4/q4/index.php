@@ -1,6 +1,5 @@
 <?php
   include 'db_create.php';
-  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,10 +22,10 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1" class="active">Q1</a></li>
+        <li><a href="../q1">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a href="../q4">Q4</a></li>
+        <li><a class="active" href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>
@@ -36,7 +35,7 @@
     <div class="hero-section">
 
     <?php
-      if(!isset($_SESSION["username"])) {
+      if(!isset($_COOKIE["username"])) {
     ?>
       <p>Hello...Umm..I dont know you. Choose one of the below links for me to know.</p>
       <a href="signup.php">Signup</a>
@@ -44,7 +43,7 @@
     <?php
       } else {
     ?>
-      <p>Hello <?php echo $_SESSION["username"]?></p>
+      <p>Hello <?php echo $_COOKIE["username"]?></p>
       <a href="logout.php">Logout</a>
     <?php
       }
