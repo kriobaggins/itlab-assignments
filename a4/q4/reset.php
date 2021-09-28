@@ -1,3 +1,17 @@
+<?php
+// random password generator
+// REFERENCE: https://stackoverflow.com/a/6101969
+function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*()!-+=_';
+    $pass = array(); //remember to declare $pass as an array
+    for ($i = 0; $i < 16; $i++) {
+        $n = rand(0, strlen($alphabet) - 1);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +33,10 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1">Q1</a></li>
+        <li><a href="../q1" class="active">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a class="active" href="../q4">Q4</a></li>
+        <li><a href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>
@@ -30,24 +44,25 @@
 
   <?php
     include 'db_create.php';
-    include 'randompass.php';
 
     $username=$_POST['username'];
     $phone=$_POST['phone'];
     $reset=$_POST['reset'];
+    $username = mysqli_real_escape_string($conn, $username);
+    $phone = mysqli_real_escape_string($conn, $phone);
 
     $sql = "SELECT * FROM $tablename WHERE username='$username'
                      AND phone='$phone'";
 
     if (isset($reset)) {
-      $result = $conn->query($sql);
+      $result = mysqli_query($conn, $sql);
       $rows = mysqli_num_rows($result);
       $randpass = randomPassword();
       if ($rows == 1) {
         $sqlresetpass = "UPDATE $tablename
         SET password = '" . md5($randpass) ."'
         WHERE username = '$username' AND phone = '$phone'";
-        if ($conn->query($sqlresetpass) === TRUE) {
+        if (mysqli_query($conn, $sqlresetpass)) {
           echo ("
           <script>
             alert('new password: $randpass');
@@ -61,6 +76,7 @@
         echo ('<script>alert("username or phone no. doesnt exist")</script>');
       }
     }
+    mysqli_close($conn);
 
   ?>
   <a href="." style="text-align: center;">Go to Home</a>

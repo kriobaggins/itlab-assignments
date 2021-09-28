@@ -19,10 +19,10 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1">Q1</a></li>
+        <li><a href="../q1" class="active">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a class="active" href="../q4">Q4</a></li>
+        <li><a href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>
@@ -36,18 +36,20 @@
     $newpassword=$_POST['newpassword'];
     $changepass=$_POST['changepass'];
 
+    $username = mysqli_real_escape_string($conn, $username);
+
     $sql = "SELECT * FROM $tablename WHERE username='$username'
             AND password='" . md5($password) ."'";
 
     if (isset($changepass)) {
-      $result = $conn->query($sql);
+      $result = mysqli_query($conn, $sql);
       $rows = mysqli_num_rows($result);
 
       if ($rows == 1) {
         $sqlresetpass = "UPDATE $tablename
         SET password = '" . md5($newpassword) ."'
         WHERE username = '$username'";
-        if ($conn->query($sqlresetpass) === TRUE) {
+        if (mysqli_query($conn, $sqlresetpass) === TRUE) {
           echo ("
           <script>
             alert('password changed');
@@ -61,6 +63,7 @@
         echo ('<script>alert("username or password invalid")</script>');
       }
     }
+    mysqli_close($conn);
   ?>
 
   <a href="." style="text-align: center;">Go to Home</a>

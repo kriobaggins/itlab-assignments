@@ -35,17 +35,20 @@
     $phone=$_POST['phone'];
     $register=$_POST['register'];
 
+    $username = mysqli_real_escape_string($conn, $username);
+    $phone = mysqli_real_escape_string($conn, $phone);
+
     $sql="INSERT INTO $tablename(username, password, phone)
       VALUES ('$username',  '" . md5($password) . "', '$phone')";
 
-
     if (isset($register)) {
-      if ($conn->query($sql) === TRUE) {
-        header('Location: login.php');
-      } else {
+      if (!mysqli_query($conn, $sql)) {
         echo ('<script>alert("user already exists")</script>');
+      } else {
+        header('Location: login.php');
       }
     }
+    mysqli_close($conn);
   ?>
 
   <a href="." style="text-align: center;">Go to Home</a>

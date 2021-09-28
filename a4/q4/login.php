@@ -19,10 +19,10 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1">Q1</a></li>
+        <li><a href="../q1" class="active">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a class="active" href="../q4">Q4</a></li>
+        <li><a href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>
@@ -30,55 +30,73 @@
 
   <?php
     include 'db_create.php';
-    session_start();
 
     $username=$_POST['username'];
     $password=$_POST['password'];
     $remember=$_POST['remember'];
     $login=$_POST['login'];
 
+    $username = mysqli_real_escape_string($conn, $username);
+
     $sql = "SELECT * FROM $tablename WHERE username='$username'
                      AND password='" . md5($password) . "'";
 
     if (isset($login)) {
-      $result = $conn->query($sql);
+      $result = mysqli_query($conn, $sql);
       $rows = mysqli_num_rows($result);
+      echo $rows;
       if ($rows == 1) {
         if($remember) {
           setcookie("username", $username, time()+86400, "/q4");
         } else {
           setcookie("username", $username, 0, "/q4");
         }
-        header('Location: index.php');
+        header('Location: login.php');
       } else {
         echo ('<script>alert("username or password doesnt exist")</script>');
       }
     }
+
+    if (isset($_COOKIE['username'])) {
+    ?>
+    <div class="hero-section">
+      <p>Hello <?php echo $_COOKIE["username"]?></p>
+      <a href="logout.php">Logout</a>
+      <a href="signup.php">Signup</a>
+      <a href="reset.php">Reset Password</a>
+      <a href="change_pass.php">Change Password</a>
+    </div>
+  <?php
+    } else {
+  ?>
+      <a href="." style="text-align: center;">Go to Home</a>
+      <main>
+        <form action="login.php" method="POST">
+          <h2>Login</h2>
+          <div class="textfield">
+            <label for="username">Username</label>
+            <input type="text" name="username" required>
+          </div>
+          <div class="textfield">
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">Remember Me</label>
+          </div>
+          <button type="submit" name="login">Login <span> &#8594 </span></button>
+          <div class="form-links">
+            <a class="form-link" href="reset.php">Forgot Password?</a>
+            <a class="form-link" href="change_pass.php">Want to change Password?</a>
+          </div>
+        </form>
+
+      </main>
+  <?php
+    }
+    mysqli_close($conn);
   ?>
 
-  <a href="." style="text-align: center;">Go to Home</a>
-  <main>
-    <form action="login.php" method="POST">
-      <h2>Login</h2>
-      <div class="textfield">
-        <label for="username">Username</label>
-        <input type="text" name="username" required>
-      </div>
-      <div class="textfield">
-        <label for="password">Password</label>
-        <input type="password" name="password" required>
-      </div>
-      <div class="checkbox">
-        <input type="checkbox" name="remember" id="remember">
-        <label for="remember">Remember Me</label>
-      </div>
-      <button type="submit" name="login">Login <span> &#8594 </span></button>
-      <div class="form-links">
-        <a class="form-link" href="reset.php">Forgot Password?</a>
-        <a class="form-link" href="change_pass.php">Want to change Password?</a>
-      </div>
-    </form>
-
-  </main>
 </body>
 </html>

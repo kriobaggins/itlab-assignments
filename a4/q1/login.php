@@ -36,42 +36,59 @@
     $password=$_POST['password'];
     $login=$_POST['login'];
 
-    // $sql="INSERT INTO $tablename(username, password, phone)
-      // VALUES ('$username',  '" . md5($password) . "', '$phone')";
+    $username = mysqli_real_escape_string($conn, $username);
+
     $sql = "SELECT * FROM $tablename WHERE username='$username'
                      AND password='" . md5($password) . "'";
 
     if (isset($login)) {
-      $result = $conn->query($sql);
+      $result = mysqli_query($conn, $sql);
       $rows = mysqli_num_rows($result);
+      echo $rows;
       if ($rows == 1) {
         $_SESSION['username'] = $username;
-        header('Location: index.php');
+        header('Location: login.php');
       } else {
         echo ('<script>alert("username or password doesnt exist")</script>');
       }
     }
+
+    if (isset($_SESSION['username'])) {
+    ?>
+    <div class="hero-section">
+      <p>Hello <?php echo $_SESSION["username"]?></p>
+      <a href="logout.php">Logout</a>
+      <a href="signup.php">Signup</a>
+      <a href="reset.php">Reset Password</a>
+      <a href="change_pass.php">Change Password</a>
+    </div>
+  <?php
+    } else {
+  ?>
+      <a href="." style="text-align: center;">Go to Home</a>
+      <main>
+        <form action="login.php" method="POST">
+          <h2>Login</h2>
+          <div class="textfield">
+            <label for="username">Username</label>
+            <input type="text" name="username" required>
+          </div>
+          <div class="textfield">
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+          </div>
+          <button type="submit" name="login">Login <span> &#8594 </span></button>
+          <div class="form-links">
+            <a class="form-link" href="reset.php">Forgot Password?</a>
+            <a class="form-link" href="change_pass.php">Want to change Password?</a>
+          </div>
+        </form>
+
+      </main>
+  <?php
+    }
+    mysqli_close($conn);
   ?>
 
-  <a href="." style="text-align: center;">Go to Home</a>
-  <main>
-    <form action="login.php" method="POST">
-      <h2>Login</h2>
-      <div class="textfield">
-        <label for="username">Username</label>
-        <input type="text" name="username" required>
-      </div>
-      <div class="textfield">
-        <label for="password">Password</label>
-        <input type="password" name="password" required>
-      </div>
-      <button type="submit" name="login">Login <span> &#8594 </span></button>
-      <div class="form-links">
-        <a class="form-link" href="reset.php">Forgot Password?</a>
-        <a class="form-link" href="change_pass.php">Want to change Password?</a>
-      </div>
-    </form>
-
-  </main>
 </body>
 </html>
