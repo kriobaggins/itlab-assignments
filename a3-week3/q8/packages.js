@@ -80,7 +80,7 @@ function handleCurrencyOnChange() {
     transport[i].innerHTML = `${services.transport[i].preText} ${services.transport[i][currency]}`;
     transport[i].value =  `${services.transport[i][currency]} ${services.transport[i].preText}`;
   }
-handleCostOnChange()
+  handleCostOnChange()
 }
 
 handleCurrencyOnChange()

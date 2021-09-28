@@ -50,6 +50,7 @@ function getFormData(info) {
     country: formData.get("countrySelect"),
     currency: formData.get("currency"),
     ticket: formData.get("ticket"),
+    hotelName: formData.get("hotelName"),
     hotelRoom: formData.get("hotelRoom"),
     meals: formData.get("meals"),
     transport: formData.get("transport"),
@@ -84,6 +85,7 @@ gender: ${data.gender}
 country: ${data.country}
 currency: ${data.currency}
 ticket: ${data.ticket}
+hotelName: ${data.hotelName}
 hotelRoom: ${data.hotelRoom}
 meals: ${data.meals}
 transport: ${data.transport}
