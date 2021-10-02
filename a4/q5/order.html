@@ -29,23 +29,57 @@
   </nav>
 
   <main>
-    <form action="login.php" method="POST">
+    <form id="pizzaInfo" onsubmit="return submitForm()">
       <h2>Order Pizza</h2>
-      <div class="textfield">
-        <label for="username">Username</label>
-        <input type="text" name="username" required>
+      <div class="radiolist">
+        <div>
+          <input type="radio" name="pizza" id="six" value="six" onchange="onChangeCalcCosts()">
+          <label for="six">Pizza 6'' serves 4 people [Rs. 100]</label>
+        </div>
+
+        <div>
+        <input type="radio" name="pizza" id="eight" value="eight" onchange="onChangeCalcCosts()">
+        <label for="eight">Pizza 8'' serves 6 people [Rs. 150]</label>
+        </div>
+
+        <div>
+        <input type="radio" name="pizza" id="ten" value="ten" onchange="onChangeCalcCosts()">
+        <label for="ten">Pizza 10'' serves 8 people [Rs. 200]</label>
+        </div>
+
+        <div>
+        <input type="radio" name="pizza" id="twelve" value="twelve" onchange="onChangeCalcCosts()">
+        <label for="twelve">Pizza 12'' serves 10 people [Rs. 300]</label>
+        </div>
       </div>
-      <div class="textfield">
-        <label for="password">Password</label>
-        <input type="password" name="password" required>
+
+      <div class="select">
+        <select name="filling" id="filling">
+          <option value="chicken">Chicken | Rs. 20</option>
+          <option value="paneer">Paneer | Rs. 20</option>
+          <option value="mushroom">Mushroom | Rs. 20</option>
+          <option value="pineapple">Pineapple | Rs. 20</option>
+        </select>
       </div>
-      <button type="submit" name="login">Login <span> &#8594 </span></button>
-      <!-- <div class="form-links"> -->
-        <!-- <a class="form-link" href="reset.php">Forgot Password?</a> -->
-        <!-- <a class="form-link" href="change_pass.php">Want to change Password?</a> -->
-      <!-- </div> -->
+
+      <div class="checkbox">
+        <input type="checkbox" name="chips" id="chips" onchange="onChangeCalcCosts()">
+        <label for="chips">Include Chips [Rs. 100]</label>
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" name="gst" id="gst" onchange="onChangeCalcCosts()">
+        <label for="gst">GST @5%</label>
+      </div>
+
+      <div style="margin-bottom: 0.4rem">
+      Total Cost: <span id="totalCost" name="totalCost"></span>
+      </div>
+
+      <button type="submit" name="order">Order Pizza <span> &#8594 </span></button>
     </form>
 
   </main>
+  <script src="order.js"></script>
 </body>
 </html>

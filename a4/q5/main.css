@@ -24,25 +24,24 @@ main > .hero-section {
   width: 30rem;
 }
 
-a {
-  color: var(--primary-color);
-}
-
-a:hover {
-  color: var(--link-hover);
-}
+a { color: var(--primary-color); }
+a:hover { color: var(--link-hover); }
+input + label { cursor: pointer; }
 
 form {
   width: 22rem;
   align-items: flex-start;
 }
 
+
+form div.select,
+form div.checkbox,
 form div.textfield,
-form div.checkbox {
+form div.radiolist {
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin-bottom: 1.7rem;
+  margin-bottom: 1.2rem;
   color: var(--label-color);
   font-weight: 400;
   font-size: 0.9rem;
@@ -50,19 +49,34 @@ form div.checkbox {
 
 form div.checkbox {
   flex-direction: row;
+  margin-bottom: .8rem;
   cursor: pointer;
 }
- 
+
+select {
+  border: none;
+  border-bottom: 1px solid var(--input-border);
+  padding: 12px;
+
+  cursor: pointer;
+  box-shadow: none;
+}
+
+select:focus { border-bottom: 1px solid var(--primary-color); }
+form div.radiolist > div { margin-bottom: 0.6rem; }
 form div.textfield label { margin-bottom: 0.3rem }
 
-form div.textfield input {
+form div.select > select,
+form div.textfield input, 
+form div.textfield textarea {
   padding: 0.6rem 0.8rem;
   border: 0;
   border-bottom: 1px solid var(--input-border);
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
-form div.textfield input:focus {
+form div.textfield input:focus,
+form div.textfield textarea:focus, {
   border-bottom: 1px solid var(--primary-color);
   outline: none;
   -moz-box-shadow: none;
@@ -81,16 +95,3 @@ form button {
 }
 
 form button:hover { transform: scale(1.1) }
-
-.form-links {
-  margin-top: .6rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-link {
-  display: inline-block;
-  width: fit-content;
-  font-size: .85rem;
-  margin-bottom: 0.1rem;
-}
