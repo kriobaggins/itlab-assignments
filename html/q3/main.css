@@ -1,0 +1,111 @@
+:root {
+  --input-border: #9fa0a2;
+  --label-color: #525252;
+  --link-hover: #0043ce;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main, form, .hero-section{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+main { padding: 4rem 0;}
+
+main > .hero-section {
+  align-items: flex-start;
+  width: 30rem;
+}
+
+a { color: var(--primary-color); }
+a:hover { color: var(--link-hover); }
+input + label { cursor: pointer; }
+
+form {
+  width: 22rem;
+  align-items: flex-start;
+}
+
+
+form div.select,
+form div.checkbox,
+form div.textfield,
+form div.radiolist {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+  color: var(--label-color);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+form div.checkbox {
+  flex-direction: row;
+  margin-bottom: .8rem;
+  cursor: pointer;
+}
+
+select {
+  border: none;
+  border-bottom: 1px solid var(--input-border);
+  padding: 12px;
+
+  cursor: pointer;
+  box-shadow: none;
+}
+
+select:focus { border-bottom: 1px solid var(--primary-color); }
+form div.radiolist > div { margin-bottom: 0.6rem; }
+form div.textfield label,
+form div.select label { margin-bottom: 0.3rem }
+
+form div.select > select,
+form div.textfield input, 
+form div.textfield textarea {
+  padding: 0.6rem 0.8rem;
+  border: 0;
+  border-bottom: 1px solid var(--input-border);
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+form div.textfield input:focus,
+form div.textfield textarea:focus, {
+  border-bottom: 1px solid var(--primary-color);
+  outline: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.error { 
+  font-size: 0.8rem; 
+  color: #fa0201; 
+}
+
+form button {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  background: var(--primary-color);
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-family: 'IBM Plex Sans', sans-serif;
+  transition: .15s ease-in-out;
+}
+
+form button:hover { transform: scale(1.1) }
+
+.pay {
+  display: flex;
+  flex-direction: column;
+}
+
+.pay .select { display: inline; }
+.pay .select > label { margin-bottom: 0.3rem}

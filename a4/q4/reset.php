@@ -17,7 +17,7 @@ function randomPassword() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment 3</title>
+  <title>Assignment 4</title>
   <link rel="stylesheet" href="../public/global.css">
   <link rel="stylesheet" href="main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment 3</title>
+  <title>Assignment 4</title>
   <link rel="stylesheet" href="../public/global.css">
   <link rel="stylesheet" href="main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,6 +70,8 @@
       <button type="submit" name="register">Register <span> &#8594 </span></button>
       <div class="form-links">
         <a class="form-link" href="login.php">Already have an Account? Login</a>
+        <a class="form-link" href="reset.php">Forgot Password?</a>
+        <a class="form-link" href="change_pass.php">Want to change Password?</a>
       </div>
     </form>
   </main>
