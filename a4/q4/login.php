@@ -47,9 +47,9 @@
       echo $rows;
       if ($rows == 1) {
         if($remember) {
-          setcookie("username", $username, time()+86400, "/q4");
+          setcookie("username", $username, time()+86400, "/");
         } else {
-          setcookie("username", $username, 0, "/q4");
+          setcookie("username", $username, 0, "/");
         }
         header('Location: login.php');
       } else {

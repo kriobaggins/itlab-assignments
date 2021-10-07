@@ -49,11 +49,11 @@
         $role = strtolower($role);
         $role = preg_replace('/[[:space:]]+/', '-', $role);
         if($remember) {
-          setcookie("email", $email, time()+86400, "/q3");
-          setcookie("role", $role, time()+86400, "/q3");
+          setcookie("email", $email, time()+86400, "/");
+          setcookie("role", $role, time()+86400, "/");
         } else {
-          setcookie("email", $email, 0, "/q3");
-          setcookie("role", $role, 0, "/q3");
+          setcookie("email", $email, 0, "/");
+          setcookie("role", $role, 0, "/");
         }
         // header('Location: login.php');
         header("Location: ../". $role);

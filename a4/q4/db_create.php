@@ -1,6 +1,6 @@
 <?php
-  $dbuname="itlaba";
-  $dbpass="passwd@123";
+  $dbuname="root";
+  $dbpass="";
   $servername="localhost";
   $dbname = "ITLAB";
   $tablename="ITLABexerciseusers";

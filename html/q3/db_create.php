@@ -1,6 +1,6 @@
 <?php
-  $dbuname="itlaba";
-  $dbpass="passwd@123";
+  $dbuname="root";
+  $dbpass="";
   $servername="localhost";
   $dbname = "ITLAB";
   $tablename="userprofile";
@@ -11,16 +11,16 @@
   $createdb="CREATE DATABASE IF NOT EXISTS $dbname";
   $createtable="CREATE TABLE IF NOT EXISTS $tablename (
     username varchar(100) NOT NULL,
-    email varchar(60) NOT NULL UNIQUE,
+    email varchar(80) NOT NULL UNIQUE,
     phone varchar(10) NOT NULL,
-    password varchar(40) NOT NULL,
-    jobRole varchar(40) NOT NULL,
-    gender varchar(6) NOT NULL,
-    country varchar(40) NOT NULL,
-    currency varchar(6) NOT NULL,
-    ticket varchar(20) NOT NULL,
-    hotelName varchar(30) NOT NULL,
-    hotelRoom varchar(45) NOT NULL,
+    password varchar(60) NOT NULL,
+    jobRole varchar(60) NOT NULL,
+    gender varchar(12) NOT NULL,
+    country varchar(60) NOT NULL,
+    currency varchar(12) NOT NULL,
+    ticket varchar(40) NOT NULL,
+    hotelName varchar(60) NOT NULL,
+    hotelRoom varchar(65) NOT NULL,
     meals varchar(45) NOT NULL,
     transport varchar(40) NOT NULL
   )";
