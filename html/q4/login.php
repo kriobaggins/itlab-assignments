@@ -19,10 +19,10 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1" class="active">Q1</a></li>
+        <li><a href="../q1">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a href="../q4">Q4</a></li>
+        <li><a class="active" href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>
@@ -31,17 +31,17 @@
   <?php
     include 'db_create.php';
 
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $remember=$_POST['remember'];
-    $login=$_POST['login'];
 
-    $username = mysqli_real_escape_string($conn, $username);
+    if (isset($_POST['login'])) {
+      $username=$_POST['username'];
+      $password=$_POST['password'];
+      $remember=$_POST['remember'];
 
-    $sql = "SELECT * FROM $tablename WHERE username='$username'
-                     AND password='" . md5($password) . "'";
+      $username = mysqli_real_escape_string($conn, $username);
 
-    if (isset($login)) {
+      $sql = "SELECT * FROM $tablename WHERE username='$username'
+                       AND password='" . md5($password) . "'";
+
       $result = mysqli_query($conn, $sql);
       $rows = mysqli_num_rows($result);
       echo $rows;

@@ -33,10 +33,10 @@ function randomPassword() {
 
     <div class="right">
       <ul>
-        <li><a href="../q1" class="active">Q1</a></li>
+        <li><a href="../q1">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a href="../q4">Q4</a></li>
+        <li><a class="active" href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>
@@ -45,16 +45,17 @@ function randomPassword() {
   <?php
     include 'db_create.php';
 
-    $username=$_POST['username'];
-    $phone=$_POST['phone'];
-    $reset=$_POST['reset'];
-    $username = mysqli_real_escape_string($conn, $username);
-    $phone = mysqli_real_escape_string($conn, $phone);
 
-    $sql = "SELECT * FROM $tablename WHERE username='$username'
-                     AND phone='$phone'";
+    if (isset($_POST['reset'])) {
 
-    if (isset($reset)) {
+      $username=$_POST['username'];
+      $phone=$_POST['phone'];
+      $username = mysqli_real_escape_string($conn, $username);
+      $phone = mysqli_real_escape_string($conn, $phone);
+
+      $sql = "SELECT * FROM $tablename WHERE username='$username'
+                       AND phone='$phone'";
+
       $result = mysqli_query($conn, $sql);
       $rows = mysqli_num_rows($result);
       $randpass = randomPassword();

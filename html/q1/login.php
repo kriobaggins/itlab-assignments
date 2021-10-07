@@ -32,16 +32,15 @@
     include 'db_create.php';
     session_start();
 
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $login=$_POST['login'];
+    if (isset($_POST['login'])) {
+      $username=$_POST['username'];
+      $password=$_POST['password'];
 
-    $username = mysqli_real_escape_string($conn, $username);
+      $username = mysqli_real_escape_string($conn, $username);
 
-    $sql = "SELECT * FROM $tablename WHERE username='$username'
-                     AND password='" . md5($password) . "'";
+      $sql = "SELECT * FROM $tablename WHERE username='$username'
+                       AND password='" . md5($password) . "'";
 
-    if (isset($login)) {
       $result = mysqli_query($conn, $sql);
       $rows = mysqli_num_rows($result);
       echo $rows;

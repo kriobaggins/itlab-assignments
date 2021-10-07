@@ -19,11 +19,11 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1" class="active">Q1</a></li>
-        <li><a href="../q2">Q2</a></li>
-        <li><a href="../q3">Q3</a></li>
-        <li><a href="../q4">Q4</a></li>
-        <li><a href="../q5">Q5</a></li>
+        <li><a href="../../q1">Q1</a></li>
+        <li><a href="../../q2">Q2</a></li>
+        <li><a class="active" href="../../q3">Q3</a></li>
+        <li><a href="../../q4">Q4</a></li>
+        <li><a href="../../q5">Q5</a></li>
       </ul>
     </div>
   </nav>
@@ -31,15 +31,15 @@
   <?php
     include '../db_create.php';
 
-    extract($_POST);
+    if (isset($_POST['login'])) {
+      $email = $_POST['email'];
+      $password = $_POST['password'];
 
-    $email = mysqli_real_escape_string($conn, $email);
-    $password = md5($password);
+      $email = mysqli_real_escape_string($conn, $email);
+      $password = md5($password);
 
-    $sql = "SELECT * FROM $tablename WHERE email='$email'
-                     AND password='$password'";
-
-    if (isset($login)) {
+      $sql = "SELECT * FROM $tablename WHERE email='$email'
+                       AND password='$password'";
       $result = mysqli_query($conn, $sql);
       $data = mysqli_fetch_array($result);
       $rows = mysqli_num_rows($result);

@@ -19,10 +19,10 @@
 
     <div class="right">
       <ul>
-        <li><a href="../q1" class="active">Q1</a></li>
+        <li><a href="../q1">Q1</a></li>
         <li><a href="../q2">Q2</a></li>
         <li><a href="../q3">Q3</a></li>
-        <li><a href="../q4">Q4</a></li>
+        <li><a class="active" href="../q4">Q4</a></li>
         <li><a href="../q5">Q5</a></li>
       </ul>
     </div>
@@ -30,18 +30,17 @@
 
   <?php
     include 'db_create.php';
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $phone=$_POST['phone'];
-    $register=$_POST['register'];
 
-    $username = mysqli_real_escape_string($conn, $username);
-    $phone = mysqli_real_escape_string($conn, $phone);
+    if (isset($_POST['register'])) {
+      $username=$_POST['username'];
+      $password=$_POST['password'];
+      $phone=$_POST['phone'];
 
-    $sql="INSERT INTO $tablename(username, password, phone)
-      VALUES ('$username',  '" . md5($password) . "', '$phone')";
+      $username = mysqli_real_escape_string($conn, $username);
+      $phone = mysqli_real_escape_string($conn, $phone);
 
-    if (isset($register)) {
+      $sql="INSERT INTO $tablename(username, password, phone)
+        VALUES ('$username',  '" . md5($password) . "', '$phone')";
       if (!mysqli_query($conn, $sql)) {
         echo ('<script>alert("user already exists")</script>');
       } else {

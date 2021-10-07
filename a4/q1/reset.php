@@ -45,16 +45,15 @@ function randomPassword() {
   <?php
     include 'db_create.php';
 
-    $username=$_POST['username'];
-    $phone=$_POST['phone'];
-    $reset=$_POST['reset'];
-    $username = mysqli_real_escape_string($conn, $username);
-    $phone = mysqli_real_escape_string($conn, $phone);
+    if (isset($_POST['reset'])) {
+      $username=$_POST['username'];
+      $phone=$_POST['phone'];
+      $username = mysqli_real_escape_string($conn, $username);
+      $phone = mysqli_real_escape_string($conn, $phone);
 
-    $sql = "SELECT * FROM $tablename WHERE username='$username'
-                     AND phone='$phone'";
+      $sql = "SELECT * FROM $tablename WHERE username='$username'
+                       AND phone='$phone'";
 
-    if (isset($reset)) {
       $result = mysqli_query($conn, $sql);
       $rows = mysqli_num_rows($result);
       $randpass = randomPassword();

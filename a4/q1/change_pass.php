@@ -31,17 +31,16 @@
   <?php
     include 'db_create.php';
 
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $newpassword=$_POST['newpassword'];
-    $changepass=$_POST['changepass'];
+    if (isset($_POST['changepass'])) {
+      $username=$_POST['username'];
+      $password=$_POST['password'];
+      $newpassword=$_POST['newpassword'];
 
-    $username = mysqli_real_escape_string($conn, $username);
+      $username = mysqli_real_escape_string($conn, $username);
 
-    $sql = "SELECT * FROM $tablename WHERE username='$username'
-            AND password='" . md5($password) ."'";
+      $sql = "SELECT * FROM $tablename WHERE username='$username'
+              AND password='" . md5($password) ."'";
 
-    if (isset($changepass)) {
       $result = mysqli_query($conn, $sql);
       $rows = mysqli_num_rows($result);
 

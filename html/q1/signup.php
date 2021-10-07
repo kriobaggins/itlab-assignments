@@ -30,18 +30,17 @@
 
   <?php
     include 'db_create.php';
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $phone=$_POST['phone'];
-    $register=$_POST['register'];
+    if (isset($_POST['register'])) {
+      $username=$_POST['username'];
+      $password=$_POST['password'];
+      $phone=$_POST['phone'];
 
-    $username = mysqli_real_escape_string($conn, $username);
-    $phone = mysqli_real_escape_string($conn, $phone);
+      $username = mysqli_real_escape_string($conn, $username);
+      $phone = mysqli_real_escape_string($conn, $phone);
 
-    $sql="INSERT INTO $tablename(username, password, phone)
-      VALUES ('$username',  '" . md5($password) . "', '$phone')";
+      $sql="INSERT INTO $tablename(username, password, phone)
+        VALUES ('$username',  '" . md5($password) . "', '$phone')";
 
-    if (isset($register)) {
       if (!mysqli_query($conn, $sql)) {
         echo ('<script>alert("user already exists")</script>');
       } else {
