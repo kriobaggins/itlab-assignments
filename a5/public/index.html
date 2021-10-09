@@ -1,1 +1,76 @@
-Hello there
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --border-color: #dce0e2;
+      --font-color: #3c4d57;
+      --blue-accent: #f4f8fb;
+      --white-accent: #fafcfd;
+      font-family: 'Inter', sans-serif;
+      color: var(--font-color);
+    }
+
+    .grid > .header {
+      font-weight: bold;
+      background-color: var(--blue-accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      width: 80%;
+      margin: auto;
+      margin-top: 4rem;
+    }
+
+    .grid > span {
+      padding: 0.8rem 1rem;
+      border-left: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    .grid > .normal:hover { background-color: var(--white-accent) }
+    
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <span class="header">Name</span>
+    <span class="header">Phone</span>
+    <span class="header">Date Of Birth</span>
+    <span class="header">Region</span>
+    <span class="header">City</span>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    const fetchData = async () => {
+      const rawData = await fetch('/api');
+      const data = await rawData.json();
+
+      console.log(data);
+      console.log($(".grid").html());
+
+      data.forEach(record => {
+        $(".grid").append(`<span class="normal">${record.name}<span>`)
+        $(".grid").append(`<span class="normal">${record.phone}<span>`)
+        $(".grid").append(`<span class="normal">${record.dateOfBirth}<span>`)
+        $(".grid").append(`<span class="normal">${record.region}<span>`)
+        $(".grid").append(`<span class="normal">${record.city}<span>`)
+      })
+    }
+
+    fetchData()
+  </script>
+</body>
+</html>
