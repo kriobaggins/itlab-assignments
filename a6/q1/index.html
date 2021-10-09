@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <h1>Blue Cow by Gelett Burgess (published in The Lark, 1895)</h1>
+  <p>I never saw a <b>Blue</b> Cow, I never hope to see one; But I can tell you, anyhow, I'd rather see than be one.</p>
+
+  <span>change the cow's color to: <input type="text" /></span>
+  <button id="change">change</button>
+
+  <script>
+  $(document).ready(function(){
+    $("#change").click(function(){
+      let input = $("input").val();
+      console.log($("h1").html($("h1").html().replace('Blue', `<span style="color:${input.toLowerCase()}">${input}</span>`)));
+      console.log($("p").html($("p").html().replace('Blue', `<span style="color:${input.toLowerCase()}">${input}</span>`)));
+    });
+  });
+  </script>
+
+</body>
+</html>
